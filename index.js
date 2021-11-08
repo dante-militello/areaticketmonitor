@@ -19,7 +19,7 @@ function check() {
       try {
         estado = JSON.parse(response.body).performances[0].statusName;
       } catch (e) {
-        console.log("No se pudo parsear, error en el sitio intento nuevamente..."); // error in the above string (in this case, yes)!
+        console.log("No se pudo parsear, error en el sitio intento nuevamente...");
       }
 
       if (typeof estado !== 'undefined') {
