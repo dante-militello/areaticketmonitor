@@ -15,3 +15,6 @@
 CHECKMS (expresado en milisegundos) para indicar cada cuanto tiempo chequear.
 ESPERARBETWEEN (expresado en milisegundos) para indicar cuanto "descansar" despues de la primera alarma.
 EVENTOID id del evento (numero de 4 cifras) que se consigue con lo indicado en el video anterior, el evento del quilmes rock es 1072
+
+
+Twitter: <a href="https://twitter.com/dantemilitello">@dantemilitello</a>
