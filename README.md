@@ -12,9 +12,10 @@
 * Es necesario tener instalado <a href="https://nodejs.org/en/">NODE.JS</a>
 * Es necesario hacer npm install antes de utilizar la app.
 
-CHECKMS (expresado en milisegundos) para indicar cada cuanto tiempo chequear.
-ESPERARBETWEEN (expresado en milisegundos) para indicar cuanto "descansar" despues de la primera alarma.
-EVENTOID id del evento (numero de 4 cifras) que se consigue con lo indicado en el video anterior, el evento del quilmes rock es 1072
 
+<p>CHECKMS (expresado en milisegundos) para indicar cada cuanto tiempo chequear.</p>
+<p>ESPERARBETWEEN (expresado en milisegundos) para indicar cuanto "descansar" despues de la primera alarma.</p>
+<p>EVENTOID id del evento (numero de 4 cifras) que se consigue con lo indicado en el video anterior, el evento del quilmes rock es 1072</p>
+<br><br>
 
 Twitter: <a href="https://twitter.com/dantemilitello">@dantemilitello</a>
