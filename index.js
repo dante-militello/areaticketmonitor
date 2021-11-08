@@ -28,7 +28,7 @@ function check() {
           
         } else {
           console.log("TICKETS DISPONIBLES!!!");
-          exec('start /B "node" "C:\\Users\\dante\\Desktop\\Proyectos\\areaticketmonitor\\alarma.mp3"');
+          exec('start /B "node" "alarma.mp3"');
           esperar = process.env.ESPERARBETWEEN;
         }
       }
