@@ -19,3 +19,4 @@
 <br><br>
 
 Twitter: <a href="https://twitter.com/dantemilitello">@dantemilitello</a>
+Tweet: <a href="https://twitter.com/dantemilitello/status/1457557227838091264">Tweet Explicativo</a>
