@@ -9,4 +9,5 @@
 2. Modificar archivo .env poniendo el ID del evento que se consigue de la siguiente manera: https://www.loom.com/share/7e6e9d0851184023a40b39378b3b1f29
 3. Ejecutar archivo .js con node desde el terminal escribiendo node index.js
 
-* Es necesario tener instalado NODE.JS
+* Es necesario tener instalado <a href="https://nodejs.org/en/">NODE.JS</a>
+* Es necesario hacer npm install antes de utilizar la app.
