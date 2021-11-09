@@ -9,7 +9,7 @@ function check() {
 
   var options = {
     'method': 'GET',
-    'url': 'https://ventas.areaticket.com.ar/api2/v1/events/'+eventoid
+    'url': 'https://ventas.areaticket.com.ar/api2/v1/events/' + eventoid
   };
 
   request(options, function (error, response) {
@@ -20,17 +20,42 @@ function check() {
         estado = JSON.parse(response.body).performances[0].statusName;
       } catch (e) {
         console.log("No se pudo parsear, error en el sitio intento nuevamente...");
+        if (e.code === 'ETIMEDOUT') {
+          console.log('Timeout, pero reintentamos!');
+        }
       }
 
       if (typeof estado !== 'undefined') {
+
         if (estado == "Disponible Pronto") {
-          console.log("Disponible Pronto");
-          
+
+          console.log("Disponible Pronto, reintentando...");
+
         } else {
           console.log("TICKETS DISPONIBLES!!!");
           exec('start /B "node" "alarma.mp3"');
-          esperar = process.env.ESPERARBETWEEN;
+
+          if (process.env.TGRAM == 1) {
+            var requestOptions = {
+              method: 'GET',
+              redirect: 'follow'
+            };
+
+            var options = {
+              'method': 'GET',
+              'url': 'https://api.telegram.org/bot' + process.env.TOKENBOT + '/sendMessage?chat_id=' + process.env.TGRAMID + '&text=' + process.env.MENSAJE,
+              'headers': {
+              }
+            };
+            request(options, function (error, response) {
+              if (error) throw new Error(error);
+              console.log(response.body);
+            });
+
+            esperar = process.env.ESPERARBETWEEN;
+          }
         }
+
       }
       setTimeout(check, esperar);
     }
