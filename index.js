@@ -13,21 +13,16 @@ function check() {
 
 	request(options, function (error, response) {
 		if (error) {
-			throw new Error(error);
+			console.log('Error al obtener la información.');
+			console.log(error);
+			setTimeout(check, esperar);
+
+			return;
 		}
 		try {
 			if (response.body) {
-				try {
-					estado = JSON.parse(response.body).performances[0].statusName;
-				}
-				catch (e) {
-					console.log("No se pudo parsear, error en el sitio intento nuevamente...");
-					
-					if (e.code === 'ETIMEDOUT') {
-						console.log('Timeout, pero reintentamos!');
-					}
-				}
-
+				estado = JSON.parse(response.body).performances[0].statusName;
+				
 				if (typeof estado !== 'undefined') {
 					if (estado == "Disponible Pronto") {
 						console.log("Disponible Pronto, reintentando...");
@@ -50,21 +45,29 @@ function check() {
 							};
 							request(options, function (error, response) {
 								if (error){
-                  console.log("Reintentando...");
-                }
-								console.log(response.body);
+                 					console.log("Reintentando..."); // ?
+									 console.log(error);
+               					}
+								else {
+									console.log(response.body);
+								}
 							});
 
 							esperar = process.env.ESPERARBETWEEN;
 						}
 					}
-
 				}
-				setTimeout(check, esperar);
 			}
+
+			setTimeout(check, esperar);
 		}
 		catch(e) {
-			console.log("No se pudo parsear, error en el sitio intento nuevamente...");
+			console.log("Error al procesar la información...");
+
+			if (e.code === 'ETIMEDOUT') {
+				console.log('Error de timeout, pero reintentamos!');
+			}
+
 			setTimeout(check, esperar);
 		}
 	});
