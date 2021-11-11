@@ -49,7 +49,9 @@ function check() {
 								}
 							};
 							request(options, function (error, response) {
-								if (error) throw new Error(error);
+								if (error){
+                  console.log("Reintentando...");
+                }
 								console.log(response.body);
 							});
 
